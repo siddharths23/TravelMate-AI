@@ -12,3 +12,4 @@
 | Dania Dababo | |
 | Farah Jamjoum| |
 
+![image](https://github.com/siddharths23/TravelMate-AI/assets/55807104/5eefe2e8-519d-4e2f-9d70-35e4510df9f0)
