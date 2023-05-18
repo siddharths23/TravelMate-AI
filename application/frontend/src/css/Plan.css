@@ -1,0 +1,79 @@
+.plan-page {
+  text-align: center;
+  padding: 2rem;
+}
+
+.plan-intro {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #ffffff;
+}
+
+.plan-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.plan-card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(90, 90, 90, 0.237);
+}
+
+.plan-card-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.plan-card-place {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.plan-card-description {
+  color: #ffffff;
+}
+
+.save-button {
+  display: inline-block;
+  background: #f00;
+  color: #fff;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  margin-top: 2rem;
+  transition: background-color 0.5s;
+  position: relative;
+  overflow: hidden;
+}
+
+.save-button:hover {
+  cursor: pointer;
+  background: #c00;
+}
+
+.save-button:hover::after {
+  cursor: pointer;
+  background: #c00;
+}
+.save-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: left 0.5s;
+}
+.save-button::after {
+  background: #f00;
+}
+.save-button:hover::before {
+  left: 100%;
+}

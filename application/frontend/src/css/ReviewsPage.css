@@ -1,0 +1,80 @@
+.reviews-page {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: url("../../public/balloons_2.jpg");
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.reviews-page h1 {
+  text-align: center;
+  /* color: #F5EABC; */
+  color: black;
+  margin-bottom: 1em;
+  font-size: 40px;
+}
+
+.add-review-button {
+  position: fixed;
+  bottom: 2em;
+  right: 2em;
+  background-color: #1b9cf1;
+  color: black;
+  font-size: 2em;
+  border-radius: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+.add-review-button:hover {
+  background-color: white;
+  color: #1b9cf1;
+}
+
+.search-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  padding: 5px;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.reviews-page input[type="text"] {
+  padding: 0.75em;
+  width: 100%;
+  margin-bottom: 1em;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+
+  font-size: 1.25em;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-icon {
+  position: absolute;
+  top: 37%;
+  left: 10px;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  color: #2961f0;
+  cursor: pointer;
+}
+
+#search-input {
+  padding: 5px;
+  padding-left: 30px;
+  border: none;
+  outline: none;
+  font-size: 1.25em;
+  width: 250px;
+}

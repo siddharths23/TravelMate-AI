@@ -1,0 +1,173 @@
+.signup-page {
+  margin: 0;
+  padding: 0;
+  background: url("../../public/ezgif.com-gif-maker.gif");
+  background-size: contain;
+  width: 100%;
+  height: 100%;
+  height: 100vh;
+}
+
+.container-signup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 750px;
+  height: 500px;
+  background: #0a5ea7a9;
+}
+.error_msg {
+  width: 370px;
+  padding: 15px;
+  margin: 5px 0;
+  font-size: 14px;
+  background-color: #f34646;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+}
+.side-content,
+.signup-container {
+  position: relative;
+  width: 50%;
+  height: 500px;
+  float: left;
+  box-sizing: border-box;
+}
+
+h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  background-clip: text;
+  -webkit-background-clip: text;
+  text-align: center;
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.303);
+}
+
+.signup-container {
+  background: #fff;
+  width: 375px;
+  height: 600px;
+  top: -15px;
+  box-shadow: -20px 0 15px rgba(0, 0, 0, 0.2);
+  padding: 40px;
+
+  border-radius: 20px;
+  box-shadow: -20px 0px 15px rgba(0, 0, 0, 0.2);
+}
+
+.signup-input {
+  padding: 12px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  width: 93%;
+}
+
+/* .signup-button {
+  margin-top: 10px;
+  padding: 12px 20px;
+  background-color: #ff4c4c;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  width: 100%;
+} */
+
+hr {
+  border: 0;
+  border-bottom: 0.0625rem solid #bbb;
+  margin: 3rem 0;
+}
+
+.signup-button {
+  font-family: "Poppins", sans-serif;
+  max-width: 9rem;
+  width: 100%;
+  margin: 1rem auto;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  text-align: center;
+  /* background: #fff; */
+  border: 0.25rem solid;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.521);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+
+button {
+  font-size: medium;
+  background: #3498db;
+  color: #fff;
+  border: 0.25rem solid #3498db;
+  padding: 0.85em 0.75em;
+  margin: 1rem;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+button:hover {
+  color: #3498db;
+}
+
+button::after {
+  content: "";
+  background: #ecf0f1;
+  position: absolute;
+  z-index: -1;
+  padding: 0.85em 0.75em;
+  display: block;
+}
+.slide::after {
+  transition: all 0.35s;
+}
+.slide:hover::after {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transition: all 0.35s;
+}
+button.bottom::after {
+  left: 0;
+  right: 0;
+  top: 100%;
+  bottom: -100%;
+}
+/* .signup-input:focus,
+.signup-button:focus {
+  outline: none;
+  box-shadow: 0px 0px 5px rgba(255, 76, 76, 0.5);
+} */
+
+.side-content {
+  font-family: "Poppins", sans-serif;
+  padding: 40px 30px;
+  color: white;
+  /* background: url(https://191-dev.s3.ap-southeast-1.amazonaws.com/wp-content/uploads/2021/12/09120024/5VTLWinterWonderland-MainPix.gif);
+  background-size: cover; */
+}
+
+p {
+  /* color: black; */
+  font-size: large;
+}
+.login-link {
+  font-size: 15px;
+  text-align: center;
+}
+.log-btn {
+  text-decoration: none;
+  color: #034ef1;
+}
+.log-btn:hover {
+  color: black;
+}

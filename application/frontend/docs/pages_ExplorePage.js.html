@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: pages/ExplorePage.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: pages/ExplorePage.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState } from "react";
+
+import "../css/Explore.css";
+import { createCompletion } from "../api";
+import { useNavigate } from "react-router-dom";
+/**
+ * An array of destination objects, each containing a name and an image URL.
+ * @type {Array&lt;{name: string, imageUrl: string}>}
+ */
+const destinations = [
+  {
+    name: "New York",
+    imageUrl:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu_%28cropped%29.jpg/1200px-View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu_%28cropped%29.jpg",
+  },
+  {
+    name: "Paris",
+    imageUrl:
+      "https://img.thedailybeast.com/image/upload/c_crop,d_placeholder_euli9k,h_3159,w_5616,x_0,y_0/dpr_1.5/c_limit,w_1600/fl_lossy,q_auto/v1681154734/230410-paris-hero_ijzlgh",
+  },
+  {
+    name: "London",
+    imageUrl: "https://images.unsplash.com/photo-1505761671935-60b3a7427bad",
+  },
+  {
+    name: "Tokyo",
+    imageUrl: "https://images.unsplash.com/photo-1517832207067-4db24a2ae47c",
+  },
+  {
+    name: "Sydney",
+    imageUrl:
+      "https://cdn.britannica.com/86/156586-050-EFB37140/Harbour-Bridge-Sydney.jpg",
+  },
+  {
+    name: "Rio de Janeiro",
+    imageUrl: "https://images.unsplash.com/photo-1509822929063-6b6cfc9b42f0",
+  },
+  {
+    name: "Rome",
+    imageUrl: "https://images.unsplash.com/photo-1474028508187-2bdc5ce7db36",
+  },
+  {
+    name: "Barcelona",
+    imageUrl: "https://images.unsplash.com/photo-1493031534415-e40e69881006",
+  },
+  {
+    name: "Cape Town",
+    imageUrl: "https://images.unsplash.com/photo-1557925923-cd4648e211c0",
+  },
+  {
+    name: "Dubai",
+    imageUrl: "https://images.unsplash.com/photo-1512453979798-5ea266f88848",
+  },
+  {
+    name: "San Francisco",
+    imageUrl: "https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99",
+  },
+  {
+    name: "Amsterdam",
+    imageUrl:
+      "https://www.travelandleisure.com/thmb/_3nQ1ivxrnTKVphdp9ZYvukADKQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/amsterdam-nl-AMSTERDAMTG0521-6d2bfaac29704667a950bcf219680640.jpg",
+  },
+  {
+    name: "Hong Kong",
+    imageUrl: "https://images.unsplash.com/photo-1553854201-c6fae533c8e9",
+  },
+  {
+    name: "Venice",
+    imageUrl: "https://images.unsplash.com/photo-1501847489-8d7f6b0a52a7",
+  },
+  {
+    name: "Singapore",
+    imageUrl: "https://images.unsplash.com/photo-1515444744559-7be63e1600de",
+  },
+];
+/**
+ * Generates an array of 5 unique random indexes from the destinations array.
+ * @returns {number[]} An array of 5 unique random indexes.
+ */
+function getRandomDestinations() {
+  const randomIndexes = new Set();
+  while (randomIndexes.size &lt; 5) {
+    randomIndexes.add(Math.floor(Math.random() * destinations.length));
+  }
+  return Array.from(randomIndexes);
+}
+/**
+ * A React component that displays a grid of random destinations.
+ * Users can click on a destination to generate a travel plan for that destination.
+ * @returns {JSX.Element} The rendered Explore component.
+ */
+function Explore() {
+  const [randomIndexes] = useState(getRandomDestinations());
+  const navigate = useNavigate();
+  /**
+   * Generates a travel plan for the given destination and navigates to the plan page.
+   * @param {string} destination The name of the destination.
+   */
+  const generatePlan = async (destination) => {
+    const prompt = `Generate a day to day travel plan in valid JSON format for visiting ${destination} with the following structure: {"Day 1": {"Place": "Some place", "Description": "Some description"}, "Day 2": {"Place": "Another place", "Description": "Another description"}, ...}`;
+
+    try {
+      const plan = await createCompletion(prompt);
+      navigate("/plan", { state: { plan } });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  return (
+    &lt;div className="explore-container">
+      &lt;h1>Explore Destinations&lt;/h1>
+      &lt;div className="destination-grid">
+        {randomIndexes.map((index) => {
+          const destination = destinations[index];
+          return (
+            &lt;div
+              key={index}
+              className="destination-card"
+              onClick={() => generatePlan(destination.name)}
+            >
+              &lt;img
+                src={destination.imageUrl}
+                alt={destination.name}
+                className="destination-image"
+              />
+              &lt;h3>{destination.name}&lt;/h3>
+            &lt;/div>
+          );
+        })}
+      &lt;/div>
+    &lt;/div>
+  );
+}
+
+export default Explore;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#Explore">Explore</a></li><li><a href="global.html#Homepage">Homepage</a></li><li><a href="global.html#LoginPage">LoginPage</a></li><li><a href="global.html#Navbar">Navbar</a></li><li><a href="global.html#PlanPage">PlanPage</a></li><li><a href="global.html#ProfilePage">ProfilePage</a></li><li><a href="global.html#SignupPage">SignupPage</a></li><li><a href="global.html#createCompletion">createCompletion</a></li><li><a href="global.html#destinations">destinations</a></li><li><a href="global.html#fetchCompletion">fetchCompletion</a></li><li><a href="global.html#getRandomDestinations">getRandomDestinations</a></li><li><a href="global.html#handleLogout">handleLogout</a></li><li><a href="global.html#isValidJson">isValidJson</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Wed May 03 2023 16:21:24 GMT-0700 (Pacific Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

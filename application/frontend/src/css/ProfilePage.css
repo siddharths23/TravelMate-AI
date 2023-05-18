@@ -1,0 +1,144 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css");
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f5f5f5;
+}
+.full-screen {
+  min-height: 100vh;
+  padding: 2rem;
+  background-color: #0976be;
+}
+.welcome {
+  font-size: 3rem;
+  font-weight: bold;
+  font-family: 'Franklin Gothic Heavy';
+  /* color: #F5EABC; */
+  color: black;
+  margin-bottom: 1rem;
+  margin-left: 9rem;
+  margin-top: 5rem;
+}
+
+
+.saved-plans {
+  font-size: 2rem;
+  font-family: 'Franklin Gothic Heavy';
+
+
+  color: black;
+  text-decoration: underline;
+  margin-bottom: 1.5rem;
+  margin-left: 9rem;
+}
+
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.card {
+  background-color: #e3e3e3;
+  border: 1px solid #e0e0e0;
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+}
+
+
+.card.collapsed {
+  max-height: 60px;
+  padding: 1rem;
+}
+
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.3s ease-in-out;
+}
+.card-header:hover {
+  transform: translateY(-5px);
+}
+
+
+.card-header h3 {
+  margin: 0;
+}
+
+
+.buttons {
+  display: flex;
+}
+
+
+.collapse-btn,
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.2rem 0.5rem;
+  margin-left: 0.5rem;
+}
+
+
+.collapse-btn {
+  font-size: 1.2rem;
+  color: #495057;
+  transform-origin: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+
+.collapse-btn.collapsed {
+  transform: rotate(180deg);
+}
+
+
+.delete-btn {
+  color: #495057;
+  transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+
+.delete-btn:hover {
+  color: #dc3545;
+  transform: rotate(20deg);
+}
+
+
+.delete-btn i {
+  pointer-events: none;
+}
+
+
+.day {
+  font-size: 1.5rem;
+}
+
+
+.list-days {
+  list-style-type: none;
+}
+
+
+.plan-name {
+  font-size: 1.75rem;
+}
+
+
+.day-desc {
+  font-size: 1.25rem;
+}

@@ -1,0 +1,191 @@
+.add-review-container {
+  width: 70%;
+  margin: 0 auto;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.add-review-container h1 {
+  color: black;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.form-container {
+  width: 60%;
+  height: auto;
+}
+.add-review-container form {
+  background-color: #f8f8f8;
+  padding: 1em;
+  border-radius: 25px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+.add-review-container input[type="text"],
+.add-review-container textarea {
+  margin-bottom: 1em;
+  font-size: larger;
+  padding: 0.5em;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.dest-name {
+  width: 60%;
+}
+.add-review-container textarea {
+  height: 70px;
+}
+/* .add-review-container button[type="submit"] {
+  background-color: red;
+  color: white;
+  padding: 0.5em 1em;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  display: block;
+  margin: 0 auto;
+} */
+
+.drop-container {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px dashed #555;
+  color: #444;
+  cursor: pointer;
+  transition: background-color .2s ease-in-out, border .2s ease-in-out;
+}
+
+.drop-container:hover {
+  background: #eee;
+  border-color: #111;
+}
+
+.drop-container:hover .drop-title {
+  color: #222;
+}
+
+.drop-title {
+  color: #444;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  transition: color .2s ease-in-out;
+}
+
+
+input[type=file] {
+  width: 350px;
+  max-width: 100%;
+  color: #444;
+  padding: 5px;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #555;
+}
+
+input[type=file]::file-selector-button {
+  margin-right: 20px;
+  border: none;
+  background-color: #084cdf;
+  padding: 10px 20px;
+  padding-bottom:4px;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color .2s ease-in-out;
+}
+
+input[type=file]::file-selector-button:hover {
+  background: #0d45a5;
+}
+.rating {
+  padding-top: 25px;
+
+}
+
+.rating input[type="radio"] {
+  display: none;
+}
+
+.rating label i.fas.fa-star {
+  color: gold;
+  font-size: 24px; /* Adjust the font size as per your preference */
+
+}
+
+.rating label i.far.fa-star {
+  color: #ddd;
+  font-size: 24px; /* Adjust the font size as per your preference */
+
+}
+
+.review-submit{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px; /* Adjust the height as needed */
+}
+
+.submit-button{
+  display: block;
+  width: 200px;
+  height: 40px;
+  line-height: 38px;
+  font-size: 18px;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: #333;
+  border: 2px solid #333;
+  letter-spacing: 2px;
+  text-align: center;
+  position: relative;
+  transition: all .35s;
+  padding: 0 10px; /* Add padding to adjust text horizontally */
+  box-sizing: border-box;
+}
+
+.submit-button span{
+  position: relative;
+  z-index: 2;
+}
+
+.submit-button::before{
+  background: transparent;
+
+}
+.submit-button:hover::before {
+  background: #084cdf; /* Change background color on hover */
+}
+.submit-button:after{
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: transparent;
+  transition: all .35s;
+}
+
+.submit-button:hover{
+  color: #fff;
+}
+
+.submit-button:hover:after{
+  width: 100%;
+  background: #131313;
+}

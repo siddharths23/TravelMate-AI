@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: pages/HomePage.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: pages/HomePage.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState, useEffect } from "react";
+import "../css/Home.css";
+import { useNavigate } from "react-router-dom";
+import _ from "lodash";
+import { createCompletion } from "../api";
+/**
+ * A React component that allows users to input various travel preferences
+ * and generates a travel plan based on those preferences.
+ * @returns {JSX.Element} The rendered Homepage component.
+ */
+function Homepage() {
+  const [value, setValue] = useState("");
+  const [days, setDays] = useState("");
+  const [interests, setInterests] = useState("");
+  const [transport, setTransport] = useState("");
+  const [restaurant, setRestaurant] = useState("");
+  const [response, setResponse] = useState("");
+  const [step, setStep] = useState(0);
+  const navigate = useNavigate();
+  /**
+   * Handles input submission, generates a travel plan based on the provided preferences,
+   * and navigates to the plan page.
+   * @param {React.FormEvent&lt;HTMLFormElement>} e The form event.
+   */
+  const handleInput = async (e) => {
+    e.preventDefault();
+    let prompt = `Generate a travel plan in valid JSON format with the format "Day 1", "Day 2", etc. as keys, and an object with "Place" and "Description" as keys for visiting ${value}.`;
+    if (days) prompt += ` The travel plan should cover ${days} days.`;
+    if (interests) prompt += ` with interests in ${interests}`;
+    if (transport) prompt += ` using ${transport} as the mode of transport`;
+    if (restaurant)
+      prompt += ` with a preference for ${restaurant} restaurants`;
+    prompt +=
+      ' The JSON object should look like this example: {"Day 1": {"Place": "Example Park", "Description": "A beautiful park with a lake."}, "Day 2": {"Place": "Example Museum", "Description": "A fascinating museum with a great collection."}}';
+    const jsonResponse = await createCompletion(prompt);
+    console.log("Generated JSON:", jsonResponse);
+    setResponse(jsonResponse);
+    navigate("/plan", {
+      state: { plan: jsonResponse },
+    });
+  };
+ /**
+   * Increases the step state to display additional input fields.
+   */
+  const handlePlusClick = () => {
+    if (step &lt; 4) setStep(step + 1);
+  };
+
+  return (
+    &lt;div className="home-page">
+      &lt;div className="homepage-container">
+        &lt;form onSubmit={handleInput} className="search-container">
+          &lt;input
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            placeholder="Destination"
+          />
+          {step >= 1 &amp;&amp; (
+            &lt;input
+              class="search-input"
+              value={days}
+              onChange={(e) => setDays(e.target.value)}
+              placeholder="Days"
+            />
+          )}
+          {step >= 2 &amp;&amp; (
+            &lt;input
+              class="search-input"
+              value={interests}
+              onChange={(e) => setInterests(e.target.value)}
+              placeholder="Interests"
+            />
+          )}
+          {step >= 3 &amp;&amp; (
+            &lt;input
+              class="search-input"
+              value={transport}
+              onChange={(e) => setTransport(e.target.value)}
+              placeholder="Transport"
+            />
+          )}
+          {step >= 4 &amp;&amp; (
+            &lt;input
+              class="search-input"
+              value={restaurant}
+              onChange={(e) => setRestaurant(e.target.value)}
+              placeholder="Restaurant"
+            />
+          )}
+          &lt;button
+            type="button"
+            className="plus-button"
+            onClick={handlePlusClick}
+          >
+            +
+          &lt;/button>
+          &lt;button type="submit" class="search-button">
+            Submit
+          &lt;/button>
+        &lt;/form>
+      &lt;/div>
+    &lt;/div>
+  );
+}
+
+export default Homepage;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#Explore">Explore</a></li><li><a href="global.html#Homepage">Homepage</a></li><li><a href="global.html#LoginPage">LoginPage</a></li><li><a href="global.html#Navbar">Navbar</a></li><li><a href="global.html#PlanPage">PlanPage</a></li><li><a href="global.html#ProfilePage">ProfilePage</a></li><li><a href="global.html#SignupPage">SignupPage</a></li><li><a href="global.html#createCompletion">createCompletion</a></li><li><a href="global.html#destinations">destinations</a></li><li><a href="global.html#fetchCompletion">fetchCompletion</a></li><li><a href="global.html#getRandomDestinations">getRandomDestinations</a></li><li><a href="global.html#handleLogout">handleLogout</a></li><li><a href="global.html#isValidJson">isValidJson</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Wed May 03 2023 16:21:24 GMT-0700 (Pacific Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
