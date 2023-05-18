@@ -3,9 +3,9 @@
 **Application URL: <http://3.101.117.160:3000/login>**
 
 
-| Student Name | Student's role |
+| Team Member | Role |
 | :----------: | :------------: |
-|   Siddharth Sankar   |  Team Leader   |
+|   Siddharth Sankar   |  Team Lead   |
 |   Muhammed Nafees  |  FrontEnd Lead   |
 | Yahya Obeid |BackEnd Lead|
 |   Hanlei Liu |         |
